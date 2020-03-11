@@ -29,7 +29,6 @@ app.get('/overview', async (req, res) => {
   return await sortCommits(entrys)
   })
 
-  console.log(cleanedForkers[0].commits.commits)
   res.render(`${__dirname}/src/components/overview/views/overview`, {
     title: 'Home',
     basePartialsPath: `${__dirname}/src/components/base/views/partials`,
