@@ -1,0 +1,13 @@
+{
+  "name": "Forky repo checker",
+  "short_name": "Forky",
+  "description": "See who has forked your repository and has made any changes to the code",
+  "start_url": "/?homescreen=1",
+  "background_color": "#000000",
+  "theme_color": "#0f4a73",
+  "icons": [{
+    "src": "icon-256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }]
+}
