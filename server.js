@@ -36,6 +36,14 @@ app.get('/overview', async (req, res) => {
   })
 })
 
+app.get('/detail/:id', (req, res) => {
+  console.log(req.params.id, '  Heeey')
+})
+
+app.get('/detail', (req, res) => {
+  console.log('  Heeey')
+})
+
 app.listen(3000, () => {
   console.log('App has booted on port 3000')
 })

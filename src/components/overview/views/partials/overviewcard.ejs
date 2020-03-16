@@ -7,9 +7,9 @@
       <% result.commits.forEach(commitbydate => { %>
         <section>
           <h3><%= commitbydate.date %></h3>
-        <% commitbydate.commits.forEach(commit => { %>
-          <div><a href="#somelink">commit.sha</a></div>
-        <% }) %>
+          <% commitbydate.commits.forEach(commit => { %>
+            <div><a href="detail/<%= result.gitusername %>&<%= result.repository %>&<%= commit.sha %>"><%= commit.commit %></a></div>
+          <% }) %>
         </section>
       <% }) %>
     </div>
