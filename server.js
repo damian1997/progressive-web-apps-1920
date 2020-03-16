@@ -48,6 +48,14 @@ app.get('/detail/:id', (req, res) => {
   })
 })
 
+app.get('/sup', (req, res) => {
+  console.log(req.params.id, '  Heeey')
+  res.render(`${__dirname}/src/components/detail/views/detail`, {
+    title: 'Detail',
+    basePartialsPath: `${__dirname}/src/components/base/views/partials`,
+  })
+})
+
 app.get('/detail', (req, res) => {
   console.log('  Heeey')
 })
