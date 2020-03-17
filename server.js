@@ -3,12 +3,12 @@ import { cleanGithubData, sortCommits } from './src/scripts/data'
 import express from 'express'
 //const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 app.set('views', 'src/components/base/views')
 
-app.use(express.static('src/styles'))
+app.use(express.static('static'))
 
 app.get('/', (req, res) => {
   res.render('home', {
@@ -31,8 +31,6 @@ app.get('/overview', async (req, res) => {
   return await sortCommits(entrys)
   })
 
-  console.log(cleanedForkers)
-
   res.render(`${__dirname}/src/components/overview/views/overview`, {
     title: 'Overview',
     basePartialsPath: `${__dirname}/src/components/base/views/partials`,
@@ -41,9 +39,8 @@ app.get('/overview', async (req, res) => {
 })
 
 app.get('/detail/:id', (req, res) => {
-  console.log(req.params.id, '  Heeey')
   res.render(`${__dirname}/src/components/detail/views/detail`, {
-    title: 'Detail',
+   title: 'Detail',
     basePartialsPath: `${__dirname}/src/components/base/views/partials`,
   })
 })
@@ -52,6 +49,10 @@ app.get('/detail', (req, res) => {
   console.log('  Heeey')
 })
 
+app.get('/offline', (req, res) => {
+  res.render('offline')
+})
+
 app.listen(PORT, () => {
-  console.log('App has booted on port 3000')
+  console.log(`App has booted on port ${PORT}`)
 })
