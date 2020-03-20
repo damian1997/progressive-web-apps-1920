@@ -1,7 +1,6 @@
 import { getForkers, getCommits, getIssues } from './src/scripts/api'
 import { cleanGithubData, sortCommits } from './src/scripts/data'
 import express from 'express'
-//const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
 
