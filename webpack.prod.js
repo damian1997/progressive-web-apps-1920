@@ -7,6 +7,8 @@ const OptimizeCssAssetsPlugin = require ('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+const ManifestPlugin = require('webpack-manifest-plugin');
+
 const webpack = require('webpack')
 
 const parsePath = path.parse(__filename);
@@ -46,6 +48,7 @@ module.exports = merge(common,{
                     autoprefixer()
                 ]
             }
-        })
+        }),
+        new ManifestPlugin()
     ]
 });

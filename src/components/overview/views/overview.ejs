@@ -2,7 +2,9 @@
 <%- include(`${basePartialsPath}/header`) %>
 
 <main>
-  <%- include('partials/overviewcard', { results: forkers}) %>
+  <section class="forker-overview">
+    <%- include('partials/overviewcard', { results: forkers}) %>
+  </section>
 </main>
 
 <%- include(`${basePartialsPath}/footer`) %>
