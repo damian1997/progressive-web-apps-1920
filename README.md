@@ -78,6 +78,12 @@ remove those redundant pieces of code to decrease the bundle size.
 Gzip compression for express is a middleware that decreases the size of the response body. This will increase the speed of the application, this wont be that much because its a small
 application but it is really easy to implement.
 
+<details>
+<summary>Network tab after implementing gzip compression</summary>
+When you compare the network tab after gzip implementation you see a 1ms improvement when rendering the page for the first meaningful paint.
+<img src="./github/images/testing/gzip-compression.png" alt="Network tab after gzip compression has been implemneted">
+</details>
+
 ## Api
 This project makes use of the following Api
 * [Github Api V3](https://developer.github.com/v3/)
