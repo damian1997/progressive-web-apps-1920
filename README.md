@@ -3,6 +3,7 @@ Repository for the progressiive web apps course
 
 ## Table of contents
 * [Description](description)
+* [Concept](concept)
 * [Api](api)
 * [Prerequisites](prerequisites)
 * [Installing](installing)
@@ -13,6 +14,18 @@ The coals of this course is to add as much optimisations to the application to m
 
 ### Application description
 With this application you can see what the students have worked on based on their commits they made to their forked repository of this course.
+
+## Concept
+This web app gives you an insight into how the students have been working on their project and how they structure their commits. The user will be able
+to see what changes the student has made to their files for each commit.
+
+<detail>
+<summary>Designs</summary>
+
+<img src="./github/images/design-1.png" alt="">
+<img src="./github/images/design-2.png" alt="">
+<img src="./github/images/design-3.png" alt="">
+</detail>
 
 ## Api
 This project makes use of the following Api
