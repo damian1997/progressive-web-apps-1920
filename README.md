@@ -61,6 +61,23 @@ As you can see from the image below the scores look really promising, but this i
 <img src="./github/images/testing/server-side-audit.png" alt="Audit after refactoring to server side rendering">
 </details>
 
+### Styling and javascript minimization
+Now it is time to start adding the styling. To minimize the size of the css and javascript files I will be using webpack. By minimizing the files through webpack you will remove
+all the whitespace and comments. Webpack can also do a lot of other optimizations such a tree shaking where it checks if there is any redundant imports inside your javascript and will
+remove those redundant pieces of code to decrease the bundle size.
+
+<details>
+<summary>Audit and network tab after implementing styling</summary>
+
+<img src="./github/images/testing/audit-styling.png" alt="Audit after adding styling to the application">
+
+<img src="./github/images/testing/networktab-styling.png" alt="Network tab after adding styling to application">
+</details>
+
+### Gzip compression
+Gzip compression for express is a middleware that decreases the size of the response body. This will increase the speed of the application, this wont be that much because its a small
+application but it is really easy to implement.
+
 ## Api
 This project makes use of the following Api
 * [Github Api V3](https://developer.github.com/v3/)
