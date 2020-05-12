@@ -46,7 +46,19 @@ I first started of by doing a audit on the web-app-from-scratch application to s
 
 <details>
 <summary>Web-app-from-scratch audit</summary>
+As you can see from the image below the application functions terribly and has really low scores across the board. So we have a long way to go.
 <img src="./github/images/testing/audit-pwa.png" alt="wafs audit starting point">
+</details>
+
+### Server side rendering
+I started of by refactoring my project to be able to be rendered from the server, in the web-app-from-scratch course i rendered the whole application from the browser using a virtual dom and diffing algorithm.
+What i noticed is that my api does not like the amount of fetches i need to do in order to get the data i need, so i made a prebuild data fetching script that writes the data into a file on the server so i dont have to
+keep asking the api for the information i need.
+
+<details>
+<summary>Audit after refactoring to server side</summary>
+As you can see from the image below the scores look really promising, but this is to be expected because there is no styling or javascript loading in yet.
+<img src="./github/images/testing/server-side-audit.png" alt="Audit after refactoring to server side rendering">
 </details>
 
 ## Api
