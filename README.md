@@ -10,7 +10,13 @@ Repository for the progressiive web apps course
 
 ## Description
 During this course i will be converting my client side webside that i build for the [web-app-from-scratch](https://github.com/damian1997/web-app-from-scratch-1920) course to a serverside rendered web application.
-The coals of this course is to add as much optimisations to the application to make it run more smooth and enhance the experience the user gets.
+The coals of this course is to add as much optimisations to the application to make it run more smooth and enhance the experience the user gets. We will do this by
+implementing:
+* Server side rendering
+* Optimizing the critical render path
+* Service Workers
+* Manifests
+* Compression
 
 ### Application description
 With this application you can see what the students have worked on based on their commits they made to their forked repository of this course.
