@@ -19,13 +19,13 @@ With this application you can see what the students have worked on based on thei
 This web app gives you an insight into how the students have been working on their project and how they structure their commits. The user will be able
 to see what changes the student has made to their files for each commit.
 
-<detail>
+<details>
 <summary>Designs</summary>
 
 <img src="./github/images/design-1.png" alt="">
 <img src="./github/images/design-2.png" alt="">
 <img src="./github/images/design-3.png" alt="">
-</detail>
+</details>
 
 ## Api
 This project makes use of the following Api
