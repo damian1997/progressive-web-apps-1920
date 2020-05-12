@@ -23,7 +23,6 @@ import detail from './routes/detail.js'
 import offline from './routes/offline.js'
 
 const COMMITS = fs.readFileSync('./data/forkersandcommits.json')
-
 app
   .get('/', (req,res) => home(req,res,COMPONENTPATH,BUNDLE,JSON.parse(COMMITS)))
   .get('/detail/:id', (req,res) => detail(req,res,COMPONENTPATH,BUNDLE))
