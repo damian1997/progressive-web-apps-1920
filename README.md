@@ -4,6 +4,7 @@ Repository for the progressiive web apps course
 ## Table of contents
 * [Description](description)
 * [Concept](concept)
+* [Optimizations](optimizations)
 * [Api](api)
 * [Prerequisites](prerequisites)
 * [Installing](installing)
@@ -38,6 +39,14 @@ to see what changes the student has made to their files for each commit.
 
 <img src="./github/images/design-3.png" alt="">
 
+</details>
+
+## Optimizations
+I first started of by doing a audit on the web-app-from-scratch application to see what point we are starting off from.
+
+<details>
+<summary>Web-app-from-scratch audit</summary>
+<img src="./github/images/testing/audit-pwa.png" alt="wafs audit starting point">
 </details>
 
 ## Api
