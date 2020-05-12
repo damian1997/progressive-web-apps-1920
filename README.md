@@ -23,11 +23,15 @@ to see what changes the student has made to their files for each commit.
 <summary>Designs</summary>
 
 **Desktop design overviewpage**
+
 <img src="./github/images/design-1.png" alt="">
 
 **Mobile designs**
+
 <img src="./github/images/design-2.png" alt="">
+
 <img src="./github/images/design-3.png" alt="">
+
 </details>
 
 ## Api
