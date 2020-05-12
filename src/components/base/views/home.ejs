@@ -2,9 +2,13 @@
 <%- include('partials/header') %>
 
 <main>
-  <h2>
-    Search to find results
-  </h2>
+  <section class="forker-overview">
+    <% if(forkers) { %>
+      <%- include('partials/overviewcard', { results: forkers}) %>
+    <% } else { %>
+        <h2>No results have been found</h2>
+    <% } %>
+  </section>
 </main>
 
 <%- include('partials/footer') %>

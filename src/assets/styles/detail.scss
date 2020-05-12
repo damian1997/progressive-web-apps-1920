@@ -1,0 +1,41 @@
+.detail {
+  padding: 40px 20px;
+  header {
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--primary-color);
+    h2,p {
+      display: inline-block;
+      color: #fff;
+    }
+  }
+  &--commit {
+    padding: 0 10px;
+    h3 {
+      margin-top: 10px;
+    }
+    &--file-patch {
+      margin-bottom: 20px;
+      border: 1px solid var(--grey-medium);
+      h4 {
+        padding: 5px;
+        margin: 0;
+        background: var(--primary-color);
+        color: #fff;
+      }
+      p {
+        padding: 5px;
+        margin: 0;
+      }
+      p.removed {
+        background: red;
+      }
+      p.added {
+        background: green;
+      }
+    }
+  }
+}

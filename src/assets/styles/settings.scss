@@ -2,8 +2,11 @@
 	--primary-color: #363636;
 	--white-color: #fff;
 	--grey-medium: #ddd;
+}
 
-	--main-font: 'Roboto', sans-serif;
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  src: 'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap'
 }
 
 * {
@@ -12,16 +15,8 @@
 
 body {
 	margin: 0;
+  font-family: 'roboto', sans-serif;
 	font-size: 16px;
-}
-
-h1,h2,h3 {
-	font-family: var(--main-font);
-}
-
-p {
-	font-family: var(--main-font);
-	font-size: 1rem;
 }
 
 input {

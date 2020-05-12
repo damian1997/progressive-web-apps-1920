@@ -1,11 +1,40 @@
-<%- include(`${basePartialsPath}/head`) %>
-<%- include(`${basePartialsPath}/header`) %>
+<%- include(`${BASEPARTIALPATH}/head`) %>
+<%- include(`${BASEPARTIALPATH}/header`) %>
 
 <main>
-  <h2>
-    Detail view
-  </h2>
+  <article class="detail">
+    <header>
+      <h2>
+        <%= commitData.committer.login %>
+      </h2>
+      <p><%= commitData.sha %></p>
+    </header>
+    <section class="detail--commit">
+      <h3>
+        <%= commitData.commit.message %>
+      </h3>
+      <p>
+        <%= commitData.files.length %> Files changed
+      </p>
+      <% filePatches.forEach(patch => { %>
+        <div class="detail--commit--file-patch">
+          <h4>
+            <%= patch.filename %>
+          </h4>
+          <% patch.patch.forEach(line => { %>
+            <% if(line.charAt(0) === '-') { %>
+              <p class="removed"><%= line %></p>
+            <% } else if(line.charAt(0) === '+') { %>
+              <p class="added"><%= line %></p>
+            <% } else { %>
+              <p><%= line %></p>
+            <% } %>
+        <% }) %>
+        </div>
+      <% }) %>
+    </section>
+  </article>
 </main>
 
-<%- include(`${basePartialsPath}/footer`) %>
-<%- include(`${basePartialsPath}/foot`) %>
+<%- include(`${BASEPARTIALPATH}/footer`) %>
+<%- include(`${BASEPARTIALPATH}/foot`) %>
