@@ -4,11 +4,11 @@ Repository for the progressiive web apps course
 ## Table of contents
 * [Description](#description)
 * [Concept](#concept)
+* [Prerequisites](#prerequisites)
+* [Installing](#installing)
 * [Optimizations](#optimizations)
 * [Api](#api)
 * [Conclusion](#conclusion)
-* [Prerequisites](#prerequisites)
-* [Installing](#installing)
 
 ## Description
 During this course I will be converting my client side webside that i build for the [web-app-from-scratch](https://github.com/damian1997/web-app-from-scratch-1920) course to a serverside rendered web application.
@@ -42,6 +42,26 @@ to see what changes the student has made to their files for each commit.
 <img src="./github/images/design-3.png" alt="">
 
 </details>
+
+## Prerequisites
+* Nodejs
+* NPM
+
+## Installing
+Clone repository into local directory
+```
+git clone https://github.com/damian1997/progressive-web-apps-1920.git
+```
+
+Install packages
+```
+npm install
+```
+
+Run local server
+```
+npm run dev
+```
 
 ## Optimizations
 I first started of by doing a audit on the web-app-from-scratch application to see what point we are starting off from.
@@ -135,6 +155,11 @@ the javascript file I discussed above.
 This project makes use of the following Api
 * [Github Api V3](https://developer.github.com/v3/)
 
+For this project I retrieve all the people who have fetched the [Progressive web apps](https://github.com/cmda-minor-web/progressive-web-apps-1920) repository,
+once I have this information for every person that forked the repository I fetch their commits (can only fetch the last 30). I do this all during a pre build
+step and write it into a JSON file on the server. When a user wants to see the changes of a commit I will fetch the files that have been changed
+for that specific commit.
+
 ### Rate limiting
 For API requests using Basic Authentication or OAuth, you can make up to 5000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether Basic authentication For API requests using Basic Authentication or OAuth, you can make up to 5000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether Basic Authentication or an [OAuth](https://developer.github.com/v3/#oauth2-token-sent-in-a-header) was used.
 
@@ -161,23 +186,3 @@ For this project I made implemented a few fixes to optimize the critical renderi
 * Compiling and compressing css and javascript files
 * Tree shaking javascript files
 * Asking for important files at the beginning without them blocking the rendering path.
-
-## Prerequisites
-* Nodejs
-* NPM
-
-## Installing
-Clone repository into local directory
-```
-git clone https://github.com/damian1997/progressive-web-apps-1920.git
-```
-
-Install packages
-```
-npm install
-```
-
-Run local server
-```
-npm run dev
-```
