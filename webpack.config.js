@@ -23,6 +23,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: [ /.js$/ ],
+        exclude: /(node_modules)(data)(sw.js)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [ '@babel/preset-env' ]
+          }
+        }
+      },
+      {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -30,7 +40,7 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ]
-      },
+      }
     ]
   },
   optimization: {

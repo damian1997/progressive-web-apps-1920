@@ -18,6 +18,7 @@ implementing:
 * Service Workers
 * Manifests
 * Compression
+* Loading Javascript inside the head using defer to make it non-blocking
 
 ### Application description
 With this application you can see what the students have worked on based on their commits they made to their forked repository of this course.
@@ -82,6 +83,40 @@ application but it is really easy to implement.
 <summary>Network tab after implementing gzip compression</summary>
 When you compare the network tab after gzip implementation you see a 1ms improvement when rendering the page for the first meaningful paint.
 <img src="./github/images/testing/gzip-compression.png" alt="Network tab after gzip compression has been implemneted">
+</details>
+
+### Caching with service workers
+For this project we implemented service workers, with service workers you can give your users a rich offline experience and do background syncrsynchronisation
+aswell as caching and pushing notifications to the user.
+
+The main reason why i implemented a service worker is to cache webpages and assets to make the page load faster if it has already been visited.
+<details>
+<summary>Caching core assets</summary>
+As you can see my styling has been cached alonside my javascript and images. I also have a page called offline inside the cache so if the user has trouble with his connection
+and tries to go onto a page he has not visited before he will see a page with information about his internet connection. The reason we do this is to prevent the user from
+looking at a empty screen.
+
+<img src="./github/images/testing/core-asset-caching.png" alt="Core assets inside browser cache">
+</details>
+
+#### Problems with caching html pages
+As mentioned before i use webpack for minifying my css and javascript, when compiling i let webpack put a hash inside the name for the css and js file
+(hash is based on content of the file). This makes wil ensure the correct stylesheet is always loaded and not some older version snuck into the application.
+In order to get this working i had to use some packages:
+* [Serviceworker webpack plugin](https://www.npmjs.com/package/serviceworker-webpack-plugin)
+* [Webpack manifest plugin](https://www.npmjs.com/package/webpack-manifest-plugin)
+
+With these 2 packages implemented i now have access to the up to date names of the css an js file i need inside my service worker, i need this to be able to cache them.
+But somehow somewhere when implementing these 2 packages i lost the ability to cache my html pages, i have not found out what causes this problem but i think it has
+something to do with the serviceworker webpack plugin compiling my serviceworker the wrong way. Caching my html pages worked perfectly before implementing these 2 packages.
+
+<details>
+<summary>Caching before implementing 2 packages</summary>
+As you can see in these images below i was able to cache my html pages before implementing the 2 packages, but not able to cache the css and js.
+
+<img src="./github/images/testing/service-workerv1.png" alt="Cached html pages">
+
+<img src="./github/images/testing/service-workerv1-2.png" alt="Cached assets">
 </details>
 
 ## Api

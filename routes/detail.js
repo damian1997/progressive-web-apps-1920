@@ -21,8 +21,6 @@ export default async function(req,res,COMPONENTPATH,BUNDLE) {
     return file_patch
   })
 
-  console.log(patches)
-
   res.render(`${COMPONENTPATH}/detail/views/detail`, {
     BASEPARTIALPATH: `${COMPONENTPATH}/base/views/partials`,
     bundledCSS: BUNDLE['main.css'],

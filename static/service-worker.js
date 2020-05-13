@@ -3,7 +3,9 @@ const PREFIXEDASSETS= serviceWorkerOption.assets.map(asset => {
   return `/bundle${asset}`
 })
 const CORE_ASSETS = [
-  '/offline'
+  '/offline',
+  '/images/down-arrow.svg',
+  '/images/manifest-design.png'
 ].concat(PREFIXEDASSETS)
 
 self.addEventListener('install', event => {
