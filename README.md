@@ -2,16 +2,17 @@
 Repository for the progressiive web apps course
 
 ## Table of contents
-* [Description](description)
-* [Concept](concept)
-* [Optimizations](optimizations)
-* [Api](api)
-* [Prerequisites](prerequisites)
-* [Installing](installing)
+* [Description](#description)
+* [Concept](#concept)
+* [Optimizations](#optimizations)
+* [Api](#api)
+* [Conclusion](#conclusion)
+* [Prerequisites](#prerequisites)
+* [Installing](#installing)
 
 ## Description
-During this course i will be converting my client side webside that i build for the [web-app-from-scratch](https://github.com/damian1997/web-app-from-scratch-1920) course to a serverside rendered web application.
-The coals of this course is to add as much optimisations to the application to make it run more smooth and enhance the experience the user gets. We will do this by
+During this course I will be converting my client side webside that i build for the [web-app-from-scratch](https://github.com/damian1997/web-app-from-scratch-1920) course to a serverside rendered web application.
+The coals of this course is to add as much optimizations to the application to make it run more smooth and enhance the experience the user gets. We will do this by
 implementing:
 * Server side rendering
 * Optimizing the critical render path
@@ -52,9 +53,9 @@ As you can see from the image below the application functions terribly and has r
 </details>
 
 ### Server side rendering
-I started of by refactoring my project to be able to be rendered from the server, in the web-app-from-scratch course i rendered the whole application from the browser using a virtual dom and diffing algorithm.
-What i noticed is that my api does not like the amount of fetches i need to do in order to get the data i need, so i made a prebuild data fetching script that writes the data into a file on the server so i dont have to
-keep asking the api for the information i need.
+I started of by refactoring my project to be able to be rendered from the server, in the web-app-from-scratch course I rendered the whole application from the browser using a virtual DOM and diffing algorithm.
+What I noticed is that my api does not like the amount of fetches i need to do in order to get the data I need, so I made a prebuild data fetching script that writes the data into a file on the server so I don't have to
+keep asking the API for the information I need.
 
 <details>
 <summary>Audit after refactoring to server side</summary>
@@ -89,35 +90,46 @@ When you compare the network tab after gzip implementation you see a 1ms improve
 For this project we implemented service workers, with service workers you can give your users a rich offline experience and do background syncrsynchronisation
 aswell as caching and pushing notifications to the user.
 
-The main reason why i implemented a service worker is to cache webpages and assets to make the page load faster if it has already been visited.
+The main reason why I implemented a service worker is to cache webpages and assets to make the page load faster if it has already been visited.
 <details>
 <summary>Caching core assets</summary>
 As you can see my styling has been cached alonside my javascript and images. I also have a page called offline inside the cache so if the user has trouble with his connection
-and tries to go onto a page he has not visited before he will see a page with information about his internet connection. The reason we do this is to prevent the user from
+and tries to go onto a page he has not visited before he will see a page with information about his Internet connection. The reason we do this is to prevent the user from
 looking at a empty screen.
 
 <img src="./github/images/testing/core-asset-caching.png" alt="Core assets inside browser cache">
 </details>
 
 #### Problems with caching html pages
-As mentioned before i use webpack for minifying my css and javascript, when compiling i let webpack put a hash inside the name for the css and js file
+As mentioned before I use webpack for minifying my css and javascript, when compiling I let webpack put a hash inside the name for the css and js file
 (hash is based on content of the file). This makes wil ensure the correct stylesheet is always loaded and not some older version snuck into the application.
 In order to get this working i had to use some packages:
 * [Serviceworker webpack plugin](https://www.npmjs.com/package/serviceworker-webpack-plugin)
 * [Webpack manifest plugin](https://www.npmjs.com/package/webpack-manifest-plugin)
 
-With these 2 packages implemented i now have access to the up to date names of the css an js file i need inside my service worker, i need this to be able to cache them.
-But somehow somewhere when implementing these 2 packages i lost the ability to cache my html pages, i have not found out what causes this problem but i think it has
+With these 2 packages implemented I now have access to the up to date names of the css an js file I need inside my service worker, I need this to be able to cache them.
+But somehow somewhere when implementing these 2 packages I lost the ability to cache my html pages, I have not found out what causes this problem but I think it has
 something to do with the serviceworker webpack plugin compiling my serviceworker the wrong way. Caching my html pages worked perfectly before implementing these 2 packages.
 
 <details>
 <summary>Caching before implementing 2 packages</summary>
-As you can see in these images below i was able to cache my html pages before implementing the 2 packages, but not able to cache the css and js.
+As you can see in these images below I was able to cache my html pages before implementing the 2 packages, but not able to cache the css and js.
 
 <img src="./github/images/testing/service-workerv1.png" alt="Cached html pages">
 
 <img src="./github/images/testing/service-workerv1-2.png" alt="Cached assets">
 </details>
+
+### Non-blocking javascript loading
+In the web-app-from-scratch course I loaded the javascript in the tail of the body, this is not best practice when it comes to time to interactive.
+I decided to put my javascript inside the head, this ensure that the javascript will be loaded in quicker, the only problem with this is that you will
+block the rendering of your html page because you are waiting for all of your javascript to be loaded. To fix this problem I added the defer attribute to
+my script tag, defer will make the javascript file load in asynchronously and thus not block the loading of the html.
+
+#### Critical rendering path
+The critical rendering path are the steps the browser takes until it shows the user a screen with pixels. This means converting the html, css, and javascript to the website the user can
+interact with. To optimize this process you need to look at what files have the highest priority and place them inside the call order according to their importance, example is
+the javascript file I discussed above.
 
 ## Api
 This project makes use of the following Api
@@ -129,7 +141,23 @@ For API requests using Basic Authentication or OAuth, you can make up to 5000 re
 For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the user making requests.
 
 #### Used authentication
-This project currentcly fetched data with unauthenticates requests.
+This project currently fetched data with unauthenticated requests.
+
+## Conclusion
+> Je snapt het verschil tussen client side en server side renderen en kan server side rendering toepassen voor het tonen van data uit een API
+The project i build for web-app-from-scratch I heavily leaned on the client-side javascript, my whole application was build from the client and there would be nothing
+on the screen if the user had no javascript enabled. During this course I re factored the whole project and made it possible to render the application
+on the server and this enables the user to consume the content even if he/she has no javascript enabled.
+
+> Je begrijpt hoe een Service Worker werkt en kan deze in jouw applicatie op een nuttige wijze implementeren.
+During this course I have used the service worker to enhance the user experience by making sure the user never sees a empty screen when he/she has no Internet connection
+and improve the loading speed of the application by implementing caching. I ran into some difficulties but i tried my best to explain what happened in this readme.
+
+> Je begrijpt hoe de critical render path werkt, en hoe je deze kan optimaliseren.
+For this project I made implemented a few fixes to optimize the critical rendering path.
+* Compiling and compressing css and javascript files
+* Tree shaking javascript files
+* Asking for important files at the beginning without them blocking the rendering path.
 
 ## Prerequisites
 * Nodejs
