@@ -145,15 +145,18 @@ This project currently fetched data with unauthenticated requests.
 
 ## Conclusion
 > Je snapt het verschil tussen client side en server side renderen en kan server side rendering toepassen voor het tonen van data uit een API
+
 The project i build for web-app-from-scratch I heavily leaned on the client-side javascript, my whole application was build from the client and there would be nothing
 on the screen if the user had no javascript enabled. During this course I re factored the whole project and made it possible to render the application
 on the server and this enables the user to consume the content even if he/she has no javascript enabled.
 
 > Je begrijpt hoe een Service Worker werkt en kan deze in jouw applicatie op een nuttige wijze implementeren.
+
 During this course I have used the service worker to enhance the user experience by making sure the user never sees a empty screen when he/she has no Internet connection
 and improve the loading speed of the application by implementing caching. I ran into some difficulties but i tried my best to explain what happened in this readme.
 
 > Je begrijpt hoe de critical render path werkt, en hoe je deze kan optimaliseren.
+
 For this project I made implemented a few fixes to optimize the critical rendering path.
 * Compiling and compressing css and javascript files
 * Tree shaking javascript files
