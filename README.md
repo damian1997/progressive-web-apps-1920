@@ -1,5 +1,5 @@
 # Progressive Web Apps @cmda-minor-web · 2019-2020
-Repository for the progressiive web apps course
+Repository for the progressiive web apps course. [DEMO](https://quiet-cliffs-49478.herokuapp.com/)
 
 ## Table of contents
 * [Description](#description)
@@ -158,7 +158,7 @@ This project makes use of the following Api
 For this project I retrieve all the people who have fetched the [Progressive web apps](https://github.com/cmda-minor-web/progressive-web-apps-1920) repository,
 once I have this information for every person that forked the repository I fetch their commits (can only fetch the last 30). I do this all during a pre build
 step and write it into a JSON file on the server. When a user wants to see the changes of a commit I will fetch the files that have been changed
-for that specific commit.
+for that specific commit
 
 ### Rate limiting
 For API requests using Basic Authentication or OAuth, you can make up to 5000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether Basic authentication For API requests using Basic Authentication or OAuth, you can make up to 5000 requests per hour. Authenticated requests are associated with the authenticated user, regardless of whether Basic Authentication or an [OAuth](https://developer.github.com/v3/#oauth2-token-sent-in-a-header) was used.
